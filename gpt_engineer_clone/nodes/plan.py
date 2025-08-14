@@ -3,7 +3,9 @@ from langchain_openai import ChatOpenAI
 from pathlib import Path
 
 def _parse_bullets(text: str):
+
     """Parse bullet points from a text string into a structured list."""
+
     plans = []
     for line in text.splitlines():
         line = line.strip("-• ").strip()
@@ -14,6 +16,11 @@ def _parse_bullets(text: str):
     return plans
 
 def plan_node(state, settings,debug: bool = False):
+
+    """
+    Create a file plan based on the clarified requirements.
+    """
+
     print(f"[DEBUG] Running plan_node with state: {state}") if debug else None
     reqs = state["clarified_requirements"]
     tmpl_text = Path(__file__).resolve().parents[1].joinpath("prompts/plan.md").read_text(encoding="utf-8")

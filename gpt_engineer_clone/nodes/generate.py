@@ -3,6 +3,11 @@ from langchain_openai import ChatOpenAI
 from pathlib import Path
 
 def generate_node(state, settings, debug: bool = False):
+
+    """
+    Generate drafts based on the clarified requirements and file plan.
+    """
+    
     print(f"[DEBUG] Running generate_node with state: {state}") if debug else None
     reqs = state["clarified_requirements"]
     file_plan_lines = [f'{f["path"]} — {f["description"]}' for f in state["file_plan"]]
