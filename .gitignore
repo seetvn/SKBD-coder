@@ -1,0 +1,6 @@
+.venv
+hn_cli/
+__pycache__/
+*.pyc
+gpt_engineer_clone.egg-info/
+pyproject.toml
