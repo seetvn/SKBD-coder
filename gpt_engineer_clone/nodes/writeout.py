@@ -27,3 +27,15 @@ def writeout_node(state, _settings, debug: bool = True):
                 content = content[9:-3].strip()
             safe_write(out_dir.joinpath(folder_path), content)
     return state
+
+if __name__ == "__main__":
+    # For testing purposes
+    test_state = {
+        "drafts": [
+            {"path": "src/main.py", "content": "print('Hello, World!')"},
+            {"path": "README.md", "content": "# Project Title\n\nDescription."}
+        ],
+        "out_dir": "test_output"
+    }
+    writeout_node(test_state, None, debug=True)
+    print("Writeout node executed successfully.")

@@ -30,3 +30,16 @@ def generate_node(state, settings, debug: bool = False):
         drafts.append({"path": path, "content": resp.content})
     state["drafts"] = drafts
     return state
+
+if __name__ == "__main__":
+    # For testing purposes
+    test_state = {
+        "clarified_requirements": "Create a simple Python script that prints 'Hello, World!'",
+        "file_plan": [
+            {"path": "src/main.py", "description": "Main script"},
+            {"path": "README.md", "description": "Project description"}
+        ]
+    }
+    settings = type('Settings', (object,), {'model': 'gpt-3.5-turbo', 'temperature': 0.7})
+    generate_node(test_state, settings, debug=True)
+    print("Generate node executed successfully.")
